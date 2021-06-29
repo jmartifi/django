@@ -1,0 +1,173 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Rayo Makween | Grupo 10 </title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row head">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'core/img/logo.png' %}" alt="" style="width: 200px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'agregarContacto' %}">Conversemos</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn btn-outline-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Iniciar sesión</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header d-block">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Iniciar sesión</h5>
+                          </div>
+                          <div class="modal-body">
+                            <form id="formLogin">
+                              <div class="form-group">
+                                <label for="inpUser" class="col-form-label">Email</label>
+                                <input type="email" class="form-control" id="inpUser">
+                              </div>
+                              <div class="form-group">
+                                <label for="inpPass" class="col-form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="inpPass">
+                              </div>
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Ingresar</button>
+                            </form>
+                          </div>
+                          <div class="modal-footer text-center d-block">
+                            ¿Olvido su clave? | <a href="registrar.html">Registrar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </nav>
+            </div>
+        </div>
+        <div class="row separador head"></div>
+        <div class="row head">
+            <div class="col text-center separadorCard">
+                <h1 class="cBlanco tit-interior">NUESTRO TRABAJO</h1>
+            </div>
+        </div>
+        <div class="row head text-center separadorCard">
+            <div class="col colorGrisTxt">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas amet tenetur recusandae repudiandae temporibus quidem rem veniam doloribus possimus ex impedit, officiis reiciendis eveniet, nemo. Nisi mollitia odit vitae reiciendis!</div>
+            </div>
+        </div>
+        <div class="row head separadorCard"></div>
+        <div class="row head bajadaInt"></div>
+        <div class="row separadorCard">
+           {% for d in detalle %}
+            <div class="col text-center separador">
+                <h1 class="tit-interior">{{d.tbat_dsc_titulo}}</h1>
+                <p>{{d.tbat_dsc_resena}}</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div id="carouselExampleIndicators" class="carousel carouselB slide carousel-fade justify-content-center" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{% static 'media/d.tbat_img_imagena' %}" class="w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="images/{{d.tbat_img_imagenb}}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="images/{{d.tbat_img_imagenc}}" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <h5>Diagnostico</h5>
+                    <p>{{d.tbat_dsc_diagnostico}}</p>
+                </div>
+                <div class="row">
+                    <h5>Detalle del trabajo</h5>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                            <tr>
+                              <th scope="row">Marca</th>
+                              <td>Volkswagen</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Modelo</th>
+                              <td>Golf A6</td>
+                            </tr>
+                             <tr>
+                              <th scope="row">Año</th>
+                              <td>2011</td>
+                            </tr>
+                             <tr>
+                              <th scope="row">Mecánico</th>
+                              <td>Javier Barrera</td>
+                            </tr>
+                             <tr>
+                              <th scope="row">Fecha de ingreso</th>
+                              <td>{{d.tbat_fch_ingreso}}</td>
+                            </tr>
+                             <tr>
+                              <th scope="row">Materiales usados</th>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Mantención N°</th>
+                              <td>1</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row separador"></div>
+        <div class="row footer separador"></div>
+    </div>
+    
+    
+    {% bootstrap_javascript jquery='full' %}
+    <script src="js/base.js"></script>
+</body>
+</html>

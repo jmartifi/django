@@ -1,0 +1,97 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+</head>
+<body>
+   <div class="container-fluid">
+        <div class="row head">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="index.html">
+                    <img src="{% static 'core/img/logo.png' %}" alt="" style="width: 200px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'inicio' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'listarUsuarios' %}">Usuarios</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'listarVehiculos' %}">Vehiculos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'listarServicios' %}">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'listarAtenciones' %}">Atenciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'listarContacto' %}">Contactos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <img src="{% static 'core/img/user.jpg' %}" class="rounded-circle imgusr" alt="">
+                    <p class="cBlanco espizq">Jorge Martínez</p>
+                </div>
+            </nav>
+            </div>
+        </div>
+        <div class="row head bajadaInt"></div>
+        <div class="row">
+            <div class="col col-lg-">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'listarVehiculos' %}">Vehiculos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Agregar vehiculo</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Agregar Vehiculo</h3>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col">
+                        <div id="formValContReg" class="alert alert-danger" role="alert" style="display: none;"></div>
+                        <form action="" method="POST" id="formRegistrar">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="col-3"></div>
+                </div>    
+            </div>
+        </div>
+        <div class="row separador"></div>
+    </div>
+    {% bootstrap_javascript jquery='full' %}
+    <script src="{% static 'core/js/registrar.js' %}"></script>
+</body>
+</html>

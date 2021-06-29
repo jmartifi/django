@@ -1,0 +1,316 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Rayo Makween | Grupo 10 </title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row head">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'core/img/logo.png' %}" alt="" style="width: 200px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'agregarContacto' %}">Conversemos</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn btn-outline-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Iniciar sesión</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header d-block">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Iniciar sesión</h5>
+                          </div>
+                          <div class="modal-body">
+                            <form id="formLogin">
+                              <div class="form-group">
+                                <label for="inpUser" class="col-form-label">Email</label>
+                                <input type="email" class="form-control" id="inpUser">
+                              </div>
+                              <div class="form-group">
+                                <label for="inpPass" class="col-form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="inpPass">
+                              </div>
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Ingresar</button>
+                            </form>
+                          </div>
+                          <div class="modal-footer text-center d-block">
+                            ¿Olvido su clave? | <a href="registrar.html">Registrar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </nav>
+            </div>
+        </div>
+        <div class="row head">
+            <div class="col">
+                <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+                        <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+                        <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img alt="First slide" class="d-block w-100" src="{% static 'core/img/01.jpg' %}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Slider One Item</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img alt="Second slide" class="d-block w-100" src="https://i.postimg.cc/pL0V5BVg/2.jpg">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Slider One Item</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img alt="Third slide" class="d-block w-100" src="https://i.postimg.cc/NF7Bs6PC/3.jpg">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Slider One Item</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                            </div>
+                        </div>
+                    </div><a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row separador">
+           <div class="col">
+               <h6>LO QUE HEMOS HECHO</h6>
+               <div class="line-tit"></div>
+               <h1>Conoce nuestros trabajos</h1>
+               <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa laboriosam, deleniti hic, nisi animi architecto vero expedita, distinctio nostrum sint repudiandae harum, ea aperiam odio magni fugiat numquam ut!</span>
+               <span>Dignissimos eius, maiores obcaecati repellat minima ducimus labore, quo, facilis sequi explicabo esse voluptas qui minus! Labore aliquam, dicta dolores pariatur minima assumenda in et, eos tempore architecto mollitia necessitatibus.</span>
+               <span>Sint eligendi natus, nihil dolorem qui dolores culpa dicta laudantium assumenda totam vero nemo dolore quod! Voluptatem tempora beatae corporis, provident, at quas culpa fuga corrupti nam accusantium, iste voluptas.</span></p>
+           </div>
+        </div>
+        <div class="row separadorCard">
+            <div class="col">
+                <form id="formBuscador" class="form-inline">
+                  <input id="inpBuscar" class="form-control" type="search" placeholder="trabajo, mecánico" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/golf.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Cambio de disco de frenos</h5>
+                    <p class="card-text">El cliente nos dejo un Volkswagen Golf A6 para relizar el cambio de discos.</p>
+                    <a href="detalleTrabajo.html" class="btn btn-primary">Ver trabajo</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://picsum.photos/seed/5/300/200" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://picsum.photos/seed/2/300/200" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://picsum.photos/seed/9/300/200" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row separador"></div>
+        <div class="row col-tres separador">
+           <div class="col text-center">
+               <h6>NUESTROS SERVICIOS</h6>
+               <div class="line-tit line-tit-center"></div>
+            </div>
+        </div>
+        <div class="row col-tres">
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_01.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Cambio de aceite.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_02.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Reparación y/o mantenimiento de cajas de cambio.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_03.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Mantenimiento al sistema de frenos.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_04.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Cambio y/o mantenimiento de embreague.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_03.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Mantenimiento al sistema de frenos.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_05.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Reparación y/o mantención en tren delantero y trasero.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_06.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Semi ajuste y ajuste de motor.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card" style="width: 18rem;">
+                  <img src="{% static 'core/img/serv_07.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Mantenimiento en general a todas las marcas.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-tres separador"></div>
+        <div class="row head separador">
+            <div class="col text-center">
+                <h6 class="colorGris">NUESTRO STAFF</h6>
+                <div class="line-titb line-tit-center"></div>
+                <p class="cBlanco"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus animi vitae eius facilis voluptate at maxime, dolores ad provident vero doloribus repellat praesentium mollitia adipisci voluptates assumenda nobis velit nisi.</span><span>Magnam aut, tempore nesciunt quisquam. Quibusdam hic expedita aperiam, eius et quod earum! Amet praesentium blanditiis veniam cupiditate voluptatibus deleniti maxime, nostrum natus distinctio pariatur necessitatibus repellendus illum dignissimos sapiente.</span></p>
+            </div>
+        </div>
+        <div class="row head separador">
+            <div class="col separadorCard">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="{% static 'core/img/javier.jpg' %}" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Javier Barrera</h5>
+                        <p>Jefe de taller</p>
+                        <p class="card-text">Ingeniería en Mecánica Automotriz y Autotrónica</p>
+                        <a href="#" class="btn btn-primary">Ver trabajos</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="{% static 'core/img/nico.jpg' %}" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Nicolas Figueroa</h5>
+                        <p>Asistente de taller</p>
+                        <p class="card-text">Ingeniería en Mecánica Automotriz y Autotrónica</p>
+                        <a href="#" class="btn btn-primary">Ver trabajos</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col separadorCard">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="{% static 'core/img/cristobal.jpg' %}" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Cristobal Aburto</h5>
+                        <p>Asistente de taller</p>
+                        <p class="card-text">Ingeniería en Mecánica Automotriz y Autotrónica</p>
+                        <a href="#" class="btn btn-primary">Ver trabajos</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer separador">
+            <div class="col">
+                <img src="images/logo.png" width="200px" alt="">
+            </div>
+            <div class="col text-right">
+                <img src="images/facebook-icon-49fa26a0c15cf48ab9f4c513f85bb4c0.svg" alt="">
+            </div>
+        </div>
+        <div class="row footer separador"></div>
+    </div>
+    
+    
+    {% bootstrap_javascript jquery='full' %}
+    <script src="js/base.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+</html>
