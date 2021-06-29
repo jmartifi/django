@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    $('#id_tbus_dsc_pass').get(0).type = 'password';
+    $('#id_tbat_fch_ingreso').get(0).type = 'date';
     
     $('#formRegistrar').submit(function(e){
         var form = valForReg();
