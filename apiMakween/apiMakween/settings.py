@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'django_bootstrap_icons',
+    'rest_framework',
+    'rest_framework.authtoken',
     #Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,7 +47,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Mis apps
     'core',
+    'rest',
 ]
+
+REST_FRAMEWORK = {    
+    'DEFAULT_AUTHENTICATION_CLASSES' : [ 
+        'rest_framework.authentication.TokenAuthentication'    
+    ]
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
